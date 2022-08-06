@@ -1,0 +1,66 @@
+.about {
+    width: 95%;
+    margin: 30px auto;
+    max-width: 750px;
+}
+
+.about_title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.sections {
+    padding: 20px 10px;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.red {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.purple {
+    background-color: rgba(128, 0, 128, 0.2);
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+.orange {
+    background-color: rgba(255, 165, 0, 0.2);
+}
+
+.brown {
+    background-color: rgba(150, 30, 30, 0.2);
+}
+
+.blue {
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+.creators {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creators>img {
+    margin-right: 25px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+}
+
+.social_icon {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+    margin: auto;
+}
