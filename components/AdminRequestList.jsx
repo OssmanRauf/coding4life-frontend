@@ -10,9 +10,7 @@ const AdminRequestList = ({
   acceptRequest,
   denyRequest,
 }) => {
-  const myLoader = () => {
-    return `${info.baseUrl}/users/profile_pic/${request.User.username}`
-  }
+  console.log(adminRequest)
   return (
     <div>
       {showLoading ? (
@@ -30,7 +28,7 @@ const AdminRequestList = ({
       <div className={styles.admin_request_container}>
         <h3>Admin Requests</h3>
         <div className={styles.admin_requests}>
-          {adminRequest.length > 0 ? (
+          {adminRequest ? (
             adminRequest.map((request) => {
               return (
                 <div
@@ -51,7 +49,9 @@ const AdminRequestList = ({
                         >
                           <Image
                             // layout="fill"
-                            loader={myLoader}
+                            loader={() => {
+                              return `${info.baseUrl}/users/profile_pic/${request.User.username}`
+                            }}
                             width="50px"
                             height="50px"
                             src={`${info.baseUrl}/users/profile_pic/${request.User.username}`}
