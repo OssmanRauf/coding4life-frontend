@@ -30,7 +30,7 @@ const AdminRequestList = ({
       <div className={styles.admin_request_container}>
         <h3>Admin Requests</h3>
         <div className={styles.admin_requests}>
-          {adminRequest ? (
+          {adminRequest.length > 0 ? (
             adminRequest.map((request) => {
               return (
                 <div
