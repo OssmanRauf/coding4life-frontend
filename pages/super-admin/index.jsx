@@ -3,11 +3,11 @@ import AdminRequestList from "../../components/AdminRequestList"
 import { getAccessToken, info, getUserInfo } from "../../utils/tokens"
 import { useEffect, useState } from "react"
 
-const index = () => {
+const index = ({ requests }) => {
   const router = useRouter()
   const [accessTokenState, setAccessTokenState] = useState("")
   const [showLoading, setShowLoading] = useState(false)
-  const [adminRequest, setAdminRequest] = useState([])
+  const [adminRequest, setAdminRequest] = useState()
   useEffect(() => {
     const handler = async () => {
       const userInfo = await getUserInfo()
@@ -19,18 +19,23 @@ const index = () => {
         router.push("/")
       }
       setAccessTokenState(accessToken)
-
-      const fetchRequests = async () => {
-        const res = await fetch(`${info.baseUrl}/admin/requests_for_admin`, {
-          headers: {
-            accept: "application/json",
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpc19hZG1pbiI6dHJ1ZSwiaXNfc3VwZXJfdXNlciI6dHJ1ZSwiZXhwIjoxNjU5NzE2NjU2LCJzY29wZSI6ImFjY2VzcyB0b2tlbiJ9.-TGF6KFCozOOvufjWieZmFW0POUDKd9d3-b8FBnxhgQ`,
-          },
-        })
-        const response = await res.json()
-        setAdminRequest(response)
+      if (!requests) {
+        router.push("/")
+      } else {
+        setAdminRequest(requests)
       }
-      fetchRequests()
+
+      //   const fetchRequests = async () => {
+      //     const res = await fetch(`${info.baseUrl}/admin/requests_for_admin`, {
+      //       headers: {
+      //         accept: "application/json",
+      //         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpc19hZG1pbiI6dHJ1ZSwiaXNfc3VwZXJfdXNlciI6dHJ1ZSwiZXhwIjoxNjU5NzE2NjU2LCJzY29wZSI6ImFjY2VzcyB0b2tlbiJ9.-TGF6KFCozOOvufjWieZmFW0POUDKd9d3-b8FBnxhgQ`,
+      //       },
+      //     })
+      //     const response = await res.json()
+      //     setAdminRequest(response)
+      //   }
+      //   fetchRequests()
     }
     handler()
   }, [])
@@ -72,6 +77,7 @@ const index = () => {
     setAdminRequest(newRequestList)
     setShowLoading(false)
   }
+  console.log(adminRequest)
   return (
     <>
       <AdminRequestList
@@ -85,3 +91,35 @@ const index = () => {
 }
 
 export default index
+
+export async function getServerSideProps(context) {
+  const { req } = context
+  if (req.cookies.accessToken) {
+    const accessToken = req.cookies.accessToken
+    // Call an external API endpoint to get posts.
+    const request = await fetch(`${info.baseUrl}/admin/requests_for_admin`, {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+    let requests
+    if (request.status !== 200) {
+      requests = false
+    } else {
+      requests = await request.json()
+    }
+    return {
+      props: {
+        requests,
+      },
+    }
+  } else {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+    }
+  }
+}

@@ -282,23 +282,40 @@ export default function myprofile({ posts, user }) {
 }
 
 export async function getServerSideProps(context) {
-  // Call an external API endpoint to get posts.
+  try {
+    const accessToken = context.req.cookies.accessToken
+    if (!accessToken) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/login",
+        },
+      }
+    } else {
+      const settings = {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+      const resUser = await fetch(`${info.baseUrl}/users/myprofile`, settings)
+      const user_response = await resUser.json()
+      const user = user_response
 
-  const accessToken = context.req.cookies.accessToken
-  const settings = {
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  }
-  const resUser = await fetch(`${info.baseUrl}/users/myprofile`, settings)
-  const user_response = await resUser.json()
-  const user = user_response
-
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      user,
-    },
+      // will receive `posts` as a prop at build time
+      return {
+        props: {
+          user,
+        },
+      }
+    }
+  } catch (error) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+    }
   }
 }
+// Call an external API endpoint to get posts.

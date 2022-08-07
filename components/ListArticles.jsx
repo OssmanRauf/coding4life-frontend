@@ -37,6 +37,7 @@ const ListArticles = ({
     )
   }
 
+  console.log(articles)
   return (
     <div className={`${styles.list_article}`}>
       {!title ? (
@@ -45,8 +46,9 @@ const ListArticles = ({
         <h3 className={`${styles.recent_article_title}`}>{title}</h3>
       )}
       <div className={`${styles.recent_article}`}>
-        {articles[0].Post
-          ? articles.map((ob) => {
+        {articles.length > 0 ? (
+          articles[0].Post ? (
+            articles.map((ob) => {
               return (
                 <SingleArticleCard
                   isAdmin={isAdmin}
@@ -56,7 +58,8 @@ const ListArticles = ({
                 />
               )
             })
-          : articles.map((post) => {
+          ) : (
+            articles.map((post) => {
               return (
                 <SingleArticleCard
                   isAdmin={isAdmin}
@@ -64,7 +67,11 @@ const ListArticles = ({
                   object={{ Post: post, User: user }}
                 />
               )
-            })}
+            })
+          )
+        ) : (
+          <h4>Sorry articles not available</h4>
+        )}
       </div>
       {showPaginations ? (
         articles.length != 0 ? (

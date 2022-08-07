@@ -31,9 +31,14 @@ const index = ({ posts }) => {
         <h1 className="tittle-admin-posts">Your posts</h1>
         <ListArticles isAdmin={true} articles={posts} />
         <Link href="/admin/article/create-article">
-          <button class="btn btn-primary btn-lg add-post-btn" type="submit">
-            +
-          </button>
+          <div className="new-post-btn">
+            <button
+              className="btn btn-primary btn-lg add-post-btn"
+              type="submit"
+            >
+              +
+            </button>
+          </div>
         </Link>
       </div>
       <GoogleAds currentPath={"adminPage"} />

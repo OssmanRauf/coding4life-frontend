@@ -34,7 +34,7 @@ const SingleArtile = ({ object, isAdmin, setShowAlert }) => {
             <Link href={`/articles/slug/${object.slug}`}>
               <a className="btn btn-primary">Read article</a>
             </Link>
-            <Link href={`admin/article/edit/${object.slug}`}>
+            <Link href={`/admin/article/edit/${object.slug}`}>
               <a className="btn btn-secondary">Edit article</a>
             </Link>
             {/* <Link href={`/admin/article/edit/${object.slug}`}> */}

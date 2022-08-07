@@ -9,7 +9,7 @@ const GoogleAds = (...props) => {
   return (
     <div key={currentPath}>
       <ins
-        class="adsbygoogle"
+        className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-9791181696156091"
         data-ad-slot="1436333349"

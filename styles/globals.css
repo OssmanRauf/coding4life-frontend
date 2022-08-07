@@ -57,21 +57,34 @@ body {
     margin: auto;
 }
 
-.add-post-btn {
-    margin: auto;
-    margin-top: 20px;
-    align-self: end;
-    position: fixed !important;
-    right: 5%;
-    bottom: 5%;
-    border-radius: 60%;
+.new-post-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+/* .add-post-btn {
+  margin: auto;
+  margin-top: 20px;
+  align-self: end;
+  position: absolute;
+  align-self: flex-end;
+  /* right: 5%; */
+
+
+/* bottom: 5%; */
+
+
+/*border-radius: 60%;
     padding: 20;
     text-align: center;
     align-items: center;
     z-index: 100;
     margin: 0;
-    /* border: 3px solid; */
-}
+    border: 3px solid; 
+} */
 
 .btn-check-profile {
     /* margin: 15px; */
