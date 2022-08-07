@@ -1,11 +1,12 @@
 import React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { getAccessToken, info } from "../utils/tokens"
 import loading from "../public/loading.gif"
 
 import { useRouter } from "next/router"
-const sign_up = () => {
+const Signup = () => {
   const [showAlert, setShowAlert] = useState(false)
   const [alertMessage, setAlertMessage] = useState("")
   const [alertType, setAlertType] = useState("")
@@ -19,7 +20,7 @@ const sign_up = () => {
       }
     }
     getToken()
-  }, [])
+  }, [router])
 
   const flashingAlert = (message, type = "danger") => {
     setAlertMessage(message)
@@ -79,7 +80,14 @@ const sign_up = () => {
     <div className="sign-up-container">
       {showLoading ? (
         <div className="full-container">
-          <img className="loading" src={loading.src} />
+          <Image
+            // layout="fill"
+            height="100%"
+            width="20%"
+            className="loading"
+            src={loading.src}
+            alt="Loading..."
+          />
         </div>
       ) : null}
       <div className="container">
@@ -147,4 +155,4 @@ const sign_up = () => {
   )
 }
 
-export default sign_up
+export default Signup

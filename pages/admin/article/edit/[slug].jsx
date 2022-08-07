@@ -4,7 +4,7 @@ import ArticleForm from "../../../../components/ArticleForm"
 import { info, getAccessToken, getUserInfo } from "../../../../utils/tokens"
 import GoogleAds from "../../../../components/GoogleAds"
 
-export default function editArticle({ post }) {
+export default function EditArticle({ post }) {
   const [accessToken, setAccessToken] = useState("")
   const [showAlert, setShowAlert] = useState(false)
   const [alertMessage, setAlertMessage] = useState("")
@@ -24,7 +24,7 @@ export default function editArticle({ post }) {
       setAccessToken(accessToken)
     }
     handler()
-  }, [])
+  }, [router])
 
   const handleSubmit = async ({
     title,

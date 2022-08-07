@@ -9,11 +9,12 @@ function MyApp({ Component, pageProps, categories }) {
   return (
     <>
       <Script
+        id="google-analytics"
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-0Z799QJ9ZZ`}
       />
 
-      <Script strategy="lazyOnload">
+      <Script id="google-ads" strategy="lazyOnload">
         {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
@@ -29,6 +30,7 @@ function MyApp({ Component, pageProps, categories }) {
       <Layout categories={categories}>
         <Component {...pageProps} />
         <Script
+          id="bootstrap"
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"

@@ -1,5 +1,5 @@
 import React from "react"
-
+import Image from "next/image"
 const Footer = () => {
   return (
     <div>
@@ -28,16 +28,30 @@ const Footer = () => {
               <a
                 href="https://www.instagram.com/coding4lifeblog/"
                 target="_blank"
+                rel="noreferrer"
                 className="text-white me-4"
               >
-                <img src="/instagram.svg" alt="" width="30px" />
+                <Image
+                  // layout="fill"
+                  src="/instagram.svg"
+                  alt=""
+                  width="30px"
+                  height="30px"
+                />
               </a>
               <a
                 href="https://github.com/thebossmanlab"
                 target="_blank"
+                rel="noreferrer"
                 className="text-white me-4"
               >
-                <img src="/github.svg" alt="" width="30px" />
+                <Image
+                  // layout="fill"
+                  src="/github.svg"
+                  alt=""
+                  width="30px"
+                  height="30px"
+                />
               </a>
             </div>
             {/* <!-- Right --> */}
@@ -56,7 +70,13 @@ const Footer = () => {
                     }}
                   />
                   <p>
-                    <img src="/footer.png" alt="" style={{ width: "10rem" }} />
+                    <Image
+                      // layout="fill"
+                      src="/footer.png"
+                      alt=""
+                      width="150px"
+                      height="100px"
+                    />
                   </p>
                 </div>
                 <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -90,6 +110,7 @@ const Footer = () => {
               style={{ margin: "10px" }}
               href="https://www.instagram.com/ossman786/"
               target="_blank"
+              rel="noreferrer"
             >
               Ossman Rauf
             </a>

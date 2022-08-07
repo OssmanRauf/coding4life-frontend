@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import { info } from "../utils/tokens"
 import ListArticles from "../components/ListArticles"
 import GoogleAds from "../components/GoogleAds"
-export default function home({ posts, pages }) {
+export default function Home({ posts, pages }) {
   const router = useRouter()
   const { page } = router.query
   const pageNumber = parseInt(page)

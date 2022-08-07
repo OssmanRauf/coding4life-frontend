@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+import Image from "next/image"
 import { getAccessToken, getUserInfo, info } from "../utils/tokens"
 import loading from "../public/loading.gif"
 import Modal from "../components/Modal"
-export default function myprofile({ posts, user }) {
+export default function Myprofile({ posts, user }) {
   const router = useRouter()
   const [isAdmin, setIsAdmin] = useState(false)
   const [showAlert, setShowAlert] = useState(false)
@@ -33,7 +34,7 @@ export default function myprofile({ posts, user }) {
       email: user.email,
       description: user.description,
     })
-  }, [])
+  }, [router, user])
 
   const closeModal = () => {
     setShowModal(false)
@@ -160,11 +161,22 @@ export default function myprofile({ posts, user }) {
 
     setShowLoading(false)
   }
+
+  const myLoader = () => {
+    return `${info.baseUrl}/users/profile_pic/${user.username}`
+  }
   return (
     <div className="my-profile">
       {showLoading ? (
         <div className="full-container">
-          <img className="loading" src={loading.src} />
+          <Image
+            // layout="fill"
+            height="100%"
+            width="20%"
+            className="loading"
+            src={loading.src}
+            alt=""
+          />
         </div>
       ) : null}
       <div className="my-info">
@@ -184,10 +196,12 @@ export default function myprofile({ posts, user }) {
           />
         ) : null}
         <button className="image-profile" onClick={() => setShowModal(true)}>
-          <img
+          <Image
+            loader={myLoader}
             className="image-profile"
             src={`${info.baseUrl}/users/profile_pic/${user.username}`}
-            width="60px"
+            width="150px"
+            height="150px"
             alt=""
           />
         </button>

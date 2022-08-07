@@ -15,7 +15,7 @@ const ArticleForm = ({ existingContent, handleSubmit }) => {
       setDescription(existingContent.description)
       setContent(existingContent.content)
     }
-  }, [])
+  }, [existingContent])
 
   return (
     <div className={`${styles.article_crud}`}>

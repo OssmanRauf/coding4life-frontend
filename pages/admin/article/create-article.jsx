@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import ArticleForm from "../../../components/ArticleForm"
 import { getAccessToken, getUserInfo, info } from "../../../utils/tokens"
 import GoogleAds from "../../../components/GoogleAds"
-const createArticle = () => {
+const CreateArticle = () => {
   const [accessToken, setAccessToken] = useState("")
   const [showAlert, setShowAlert] = useState(false)
   const [alertMessage, setAlertMessage] = useState("")
@@ -23,7 +23,7 @@ const createArticle = () => {
       setAccessToken(accessToken)
     }
     handler()
-  }, [])
+  }, [router])
 
   const handleSubmit = async ({
     title,
@@ -72,4 +72,4 @@ const createArticle = () => {
   )
 }
 
-export default createArticle
+export default CreateArticle

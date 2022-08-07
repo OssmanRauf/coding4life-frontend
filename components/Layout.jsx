@@ -6,19 +6,19 @@ const Layout = ({ children, categories }) => {
   return (
     <>
       <Head>
-        <Script>
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9791181696156091"
-            crossorigin="anonymous"
-          ></script>
-        </Script>
+        {/* <Script> */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9791181696156091"
+          crossOrigin="anonymous"
+        ></script>
+        {/* </Script> */}
       </Head>
-      <main className="main-layout">
-        <Nav categories={categories} />
+      <Nav categories={categories} />
+      <main style={{ minHeight: "500px" }} className="main-layout">
         {children}
-        <Footer />
       </main>
+      <Footer />
     </>
   )
 }

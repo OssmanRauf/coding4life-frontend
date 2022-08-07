@@ -8,7 +8,7 @@ import {
   getAccessToken,
 } from "../utils/tokens"
 
-const login = () => {
+const Login = () => {
   const [showAlert, setShowAlert] = useState(false)
   const router = useRouter()
   useEffect(() => {
@@ -19,7 +19,7 @@ const login = () => {
       }
     }
     getToken()
-  }, [])
+  }, [router])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -89,7 +89,7 @@ const login = () => {
         </form>
         <Link href="/sign-up">
           <a className="link-register">
-            Click here if you don't have an account
+            Click here if you don&apos;t have an account
           </a>
         </Link>
       </div>

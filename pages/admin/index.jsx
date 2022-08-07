@@ -4,7 +4,7 @@ import { getAccessToken, getUserInfo, info } from "../../utils/tokens"
 import Link from "next/link"
 import ListArticles from "../../components/ListArticles"
 import GoogleAds from "../../components/GoogleAds"
-const index = ({ posts }) => {
+const Index = ({ posts }) => {
   const router = useRouter()
   useEffect(() => {
     const handler = async () => {
@@ -46,7 +46,7 @@ const index = ({ posts }) => {
   )
 }
 
-export default index
+export default Index
 
 export async function getServerSideProps(context) {
   const { page } = context.query

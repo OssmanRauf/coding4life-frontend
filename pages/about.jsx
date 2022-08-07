@@ -2,6 +2,7 @@ import styles from "../styles/about.module.css"
 import creators from "../public/creators.jpg"
 import Head from "next/head"
 import GoogleAds from "../components/GoogleAds"
+import Image from "next/image"
 const about = () => {
   return (
     <>
@@ -43,7 +44,7 @@ const about = () => {
         </div>
         <div className={`${styles.green} ${styles.sections}`}>
           <p>
-            <b>What is Coding4Life's purpose?</b>
+            <b>What is Coding4Life&apos;s purpose?</b>
           </p>
           <p>
             Our goal is to provide information and motivation to all developers
@@ -60,10 +61,10 @@ const about = () => {
             <b>Is it free?</b>
           </p>
           <p>
-            <b>Yes</b> it's totally free to read or write articles you don't
-            need to pay for anything but to pay for our servers and domain we
-            added ads so that we can generate some revenue to maintain the blog
-            up and running.
+            <b>Yes</b> it&apos;s totally free to read or write articles you
+            don&apos;t need to pay for anything but to pay for our servers and
+            domain we added ads so that we can generate some revenue to maintain
+            the blog up and running.
           </p>
         </div>
         <div className={`${styles.sections} ${styles.brown}`}>
@@ -80,8 +81,8 @@ const about = () => {
             If you have any questions, comments or suggestions to improve our
             blog, please put an issue on our <a href="">Github repository</a>,
             contact us on our social media or be a developer and make your own
-            changes and pull a request on our repository we'll take a look and
-            get to you soon <span>&#128517;</span>.
+            changes and pull a request on our repository we&apos;ll take a look
+            and get to you soon <span>&#128517;</span>.
           </p>
         </div>
         <div>
@@ -101,12 +102,12 @@ const about = () => {
                 Ossman Rauf wanted to create a blog from scratch to share
                 information and help others with his knowledge and on the
                 development of his blog he decided to make it that anyone can
-                use his blog and leave his knowledge to others, that's when
+                use his blog and leave his knowledge to others, that&apos;s when
                 Coding4Life come into life.
               </p>
             </div>
             <div className={styles.social}>
-              <p>Ossman Rauf's social media: </p>
+              <p>Ossman Rauf&apos;s social media: </p>
 
               <div className={styles.social_icon}>
                 <a
@@ -114,14 +115,26 @@ const about = () => {
                   target="_blank"
                   style={{ color: "red" }}
                 >
-                  <img src="/instagram.svg" alt="" width="30px" />
+                  <Image
+                    // layout="fill"
+                    src="/instagram.svg"
+                    alt=""
+                    width="30px"
+                    height="30px"
+                  />
                 </a>
                 <a
                   href="https://github.com/thebossmanlab"
                   target="_blank"
                   style={{ color: "black" }}
                 >
-                  <img src="/github.svg" alt="" width="30px" />
+                  <Image
+                    // layout="fill"
+                    height="30px"
+                    src="/github.svg"
+                    alt=""
+                    width="30px"
+                  />
                 </a>
               </div>
             </div>

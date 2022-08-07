@@ -1,19 +1,25 @@
 import ListArticles from "./ListArticles"
 import Link from "next/link"
+import Image from "next/image"
 import { info } from "../utils/tokens"
 import styles from "../styles/userProfile.module.css"
 const UserProfile = ({ user, posts }) => {
+  const myLoader = () => {
+    return `${info.baseUrl}/users/profile_pic/${user.username}`
+  }
   return (
     <>
       <div className={`${styles.user_profile}`}>
         <div className={`${styles.user_info}`}>
           <div className={styles.image_username}>
             <button className="image-profile">
-              <img
+              <Image
                 className="image-profile"
-                height="1rem"
+                height="150px"
+                width="150px"
                 alt=""
-                srcSet={`${info.baseUrl}/users/profile_pic/${user.username}`}
+                loader={myLoader}
+                src={`${info.baseUrl}/users/profile_pic/${user.username}`}
               />
             </button>
             <Link href={`/profile/${user.username}`}>

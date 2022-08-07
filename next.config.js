@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
+import { info } from "./utils/tokens"
 const nextConfig = {
-  reactStrictMode: true,
+    reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+    images: {
+        domains: [info.baseUrl],
+    },
+    nextConfig,
+}

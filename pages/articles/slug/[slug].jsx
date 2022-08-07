@@ -6,10 +6,10 @@ import ReadPost from "../../../components/ReadPost"
 import GoogleAds from "../../../components/GoogleAds"
 
 export default function Slug({ post, comments }) {
+  const router = useRouter()
   if (!post) {
     return <NotFound />
   }
-  const router = useRouter()
   const { slug } = router.query
   return (
     <>

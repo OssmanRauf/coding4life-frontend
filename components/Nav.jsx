@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { getAccessToken, getUserInfo, deleteTokens } from "../utils/tokens"
 import { useRouter } from "next/router"
+import Image from "next/image"
 import logo from "../public/logo.png"
 const Nav = ({ categories }) => {
   const categoriesList = categories
@@ -33,7 +34,14 @@ const Nav = ({ categories }) => {
       <div className={"container-fluid"}>
         <Link href="/">
           <a className={"navbar-brand navbar-logo"}>
-            <img src={logo.src} width="150" alt="" srcSet="" />
+            <Image
+              // layout="fill"
+              src={logo.src}
+              width="150px"
+              height="50px"
+              alt=""
+              srcSet=""
+            />
           </a>
         </Link>
         <button

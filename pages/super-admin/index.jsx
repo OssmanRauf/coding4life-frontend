@@ -3,7 +3,7 @@ import AdminRequestList from "../../components/AdminRequestList"
 import { getAccessToken, info, getUserInfo } from "../../utils/tokens"
 import { useEffect, useState } from "react"
 
-const index = ({ requests }) => {
+const Index = ({ requests }) => {
   const router = useRouter()
   const [accessTokenState, setAccessTokenState] = useState("")
   const [showLoading, setShowLoading] = useState(false)
@@ -24,21 +24,9 @@ const index = ({ requests }) => {
       } else {
         setAdminRequest(requests)
       }
-
-      //   const fetchRequests = async () => {
-      //     const res = await fetch(`${info.baseUrl}/admin/requests_for_admin`, {
-      //       headers: {
-      //         accept: "application/json",
-      //         Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpc19hZG1pbiI6dHJ1ZSwiaXNfc3VwZXJfdXNlciI6dHJ1ZSwiZXhwIjoxNjU5NzE2NjU2LCJzY29wZSI6ImFjY2VzcyB0b2tlbiJ9.-TGF6KFCozOOvufjWieZmFW0POUDKd9d3-b8FBnxhgQ`,
-      //       },
-      //     })
-      //     const response = await res.json()
-      //     setAdminRequest(response)
-      //   }
-      //   fetchRequests()
     }
     handler()
-  }, [])
+  }, [router])
 
   const acceptRequest = async (id) => {
     setShowLoading(true)

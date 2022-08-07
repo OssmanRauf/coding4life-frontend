@@ -3,6 +3,7 @@ import loading from "../public/loading.gif"
 import { getDateInfo, info } from "../utils/tokens"
 import styles from "../styles/adminRequestList.module.css"
 import Link from "next/link"
+import Image from "next/image"
 const AdminRequestList = ({
   showLoading,
   adminRequest,
@@ -13,7 +14,14 @@ const AdminRequestList = ({
     <div>
       {showLoading ? (
         <div className={styles.full_container}>
-          <img style={{ width: "20%" }} src={loading.src} />
+          <Image
+            // layout="fill"
+            width="20%"
+            height="100%"
+            // style={{ width: "20%" }}
+            src={loading.src}
+            alt=""
+          />
         </div>
       ) : null}
       <div className={styles.admin_request_container}>
@@ -38,10 +46,13 @@ const AdminRequestList = ({
                             color: "black",
                           }}
                         >
-                          <img
-                            width="50"
+                          <Image
+                            // layout="fill"
+                            width="50px"
+                            height="50px"
                             src={`${info.baseUrl}/users/profile_pic/${request.User.username}`}
                             style={{ borderRadius: "50%" }}
+                            alt="Profile"
                           />
 
                           <h5 className={`${styles.card_title}`}>
