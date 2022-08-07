@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import TextEditor from "./TextEditor"
-import styles from "../styles/articleform.module.css"
+import styles from "../styles/articleForm.module.css"
 
 const ArticleForm = ({ existingContent, handleSubmit }) => {
   const [content, setContent] = useState("")
