@@ -10,6 +10,9 @@ const AdminRequestList = ({
   acceptRequest,
   denyRequest,
 }) => {
+  const myLoader = () => {
+    return `${info.baseUrl}/users/profile_pic/${request.User.username}`
+  }
   return (
     <div>
       {showLoading ? (
@@ -48,6 +51,7 @@ const AdminRequestList = ({
                         >
                           <Image
                             // layout="fill"
+                            loader={myLoader}
                             width="50px"
                             height="50px"
                             src={`${info.baseUrl}/users/profile_pic/${request.User.username}`}
