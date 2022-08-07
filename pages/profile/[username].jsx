@@ -3,7 +3,7 @@ import { info } from "../../utils/tokens"
 import NotFound from "../../components/NotFound"
 import UserProfile from "../../components/UserProfile"
 import GoogleAds from "../../components/GoogleAds"
-export default function myprofile({ posts, user }) {
+export default function Userprofile({ posts, user }) {
   if (!posts) {
     return <NotFound />
   }

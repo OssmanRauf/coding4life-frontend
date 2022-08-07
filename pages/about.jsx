@@ -3,7 +3,7 @@ import creators from "../public/creators.jpg"
 import Head from "next/head"
 import GoogleAds from "../components/GoogleAds"
 import Image from "next/image"
-const about = () => {
+const About = () => {
   return (
     <>
       <Head>
@@ -156,4 +156,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About

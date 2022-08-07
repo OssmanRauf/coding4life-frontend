@@ -65,7 +65,6 @@ const Index = ({ requests }) => {
     setAdminRequest(newRequestList)
     setShowLoading(false)
   }
-  console.log(adminRequest)
   return (
     <>
       <AdminRequestList
@@ -78,7 +77,7 @@ const Index = ({ requests }) => {
   )
 }
 
-export default index
+export default Index
 
 export async function getServerSideProps(context) {
   const { req } = context

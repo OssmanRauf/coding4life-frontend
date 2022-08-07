@@ -4,7 +4,7 @@ import NotFound from "../../components/NotFound"
 import Head from "next/head"
 import GoogleAds from "../../components/GoogleAds"
 
-const search = ({ posts, slug }) => {
+const Search = ({ posts, slug }) => {
   if (posts.length < 1) {
     return <NotFound />
   }
@@ -22,7 +22,7 @@ const search = ({ posts, slug }) => {
     </>
   )
 }
-export default search
+export default Search
 export async function getServerSideProps(context) {
   const { slug } = context.query
   // Call an external API endpoint to get posts.
