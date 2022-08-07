@@ -1,5 +1,5 @@
 import styles from "../styles/about.module.css"
-import creators from "../public/creators.jpg"
+import creator from "../public/creator.png"
 import Head from "next/head"
 import GoogleAds from "../components/GoogleAds"
 import Image from "next/image"
@@ -111,7 +111,7 @@ const About = () => {
                 style={{ borderRadius: "50px" }}
                 width="500px"
                 height="500px"
-                src={creators.src}
+                src={creator.src}
                 alt=""
               />
               {/* </span> */}
