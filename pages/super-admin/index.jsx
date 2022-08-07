@@ -26,7 +26,7 @@ const Index = ({ requests }) => {
       }
     }
     handler()
-  }, [router])
+  }, [router, requests])
 
   const acceptRequest = async (id) => {
     setShowLoading(true)

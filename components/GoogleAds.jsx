@@ -15,7 +15,9 @@ const GoogleAds = (...props) => {
             data-ad-format="auto"
             data-full-width-responsive="true"
           ></ins>
-          <Script>{(adsbygoogle = window.adsbygoogle || []).push({})}</Script>
+          <Script id="google-ad-script">
+            {(adsbygoogle = window.adsbygoogle || []).push({})}
+          </Script>
         </div>
       )
     } catch (e) {}

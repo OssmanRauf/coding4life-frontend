@@ -24,6 +24,7 @@ const SingleComment = ({ comment }) => {
                   src={`${info.baseUrl}/users/profile_pic/${comment.User.username}`}
                   style={{ borderRadius: "50%" }}
                   loader={myLoader}
+                  alt=""
                 />
 
                 <h5 style={{ paddingLeft: "15px" }} className="card-title">

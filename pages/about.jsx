@@ -97,8 +97,16 @@ const about = () => {
             </p>
 
             <div className={`${styles.creators}`}>
-              <img width="100px" src={creators.src} alt="" />
-              <p>
+              {/* <span style={{ borderRadius: "50px" }}> */}
+              <Image
+                style={{ borderRadius: "50px" }}
+                width="500px"
+                height="500px"
+                src={creators.src}
+                alt=""
+              />
+              {/* </span> */}
+              <p style={{ paddingLeft: "15px" }}>
                 Ossman Rauf wanted to create a blog from scratch to share
                 information and help others with his knowledge and on the
                 development of his blog he decided to make it that anyone can
@@ -113,6 +121,7 @@ const about = () => {
                 <a
                   href="https://www.instagram.com/ossman786/"
                   target="_blank"
+                  rel="noreferrer"
                   style={{ color: "red" }}
                 >
                   <Image
@@ -126,6 +135,7 @@ const about = () => {
                 <a
                   href="https://github.com/thebossmanlab"
                   target="_blank"
+                  rel="noreferrer"
                   style={{ color: "black" }}
                 >
                   <Image

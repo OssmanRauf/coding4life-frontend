@@ -17,7 +17,7 @@ const Index = ({ posts }) => {
       }
     }
     handler()
-  }, [])
+  }, [router])
 
   return (
     <>
