@@ -7,6 +7,15 @@ const About = () => {
   return (
     <>
       <Head>
+        <meta
+          name="keywords"
+          content="about, Coding4Life, coding4life, about coding4lif, About"
+        />
+        <meta
+          name="description"
+          content="Coding4Life everything about coding in one place, Coding4Life is a blog just like DEV or Medium that aims to bring you
+            the best content for coding, software engineering and more"
+        />
         <title>About</title>
       </Head>
       <div className={styles.about}>
