@@ -16,7 +16,7 @@ const AdminRequestList = ({
         <div className={styles.full_container}>
           <Image
             // layout="fill"
-            width="20%"
+            width="100%"
             height="100%"
             // style={{ width: "20%" }}
             src={loading.src}

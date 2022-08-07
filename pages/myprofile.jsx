@@ -108,7 +108,7 @@ export default function Myprofile({ posts, user }) {
 
     const res = await fetch(`${info.baseUrl}/users/${user.id}`, settings)
     const response = await res.json()
-    if (res.status !== 200) {
+    if (res.status !== 201) {
       flashingAlert(response.detail, "danger")
     } else {
       flashingAlert(
@@ -172,8 +172,9 @@ export default function Myprofile({ posts, user }) {
           <Image
             // layout="fill"
             height="100%"
-            width="20%"
-            className="loading"
+            width="100%"
+            // className="loading"
+            style={{ margin: "auto" }}
             src={loading.src}
             alt=""
           />

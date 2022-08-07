@@ -83,7 +83,7 @@ const Signup = () => {
           <Image
             // layout="fill"
             height="100%"
-            width="20%"
+            width="100%"
             className="loading"
             src={loading.src}
             alt="Loading..."
