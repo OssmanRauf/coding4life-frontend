@@ -64,30 +64,7 @@ body {
     align-items: flex-end;
 }
 
-
-/* .add-post-btn {
-  margin: auto;
-  margin-top: 20px;
-  align-self: end;
-  position: absolute;
-  align-self: flex-end;
-  /* right: 5%; */
-
-
-/* bottom: 5%; */
-
-
-/*border-radius: 60%;
-    padding: 20;
-    text-align: center;
-    align-items: center;
-    z-index: 100;
-    margin: 0;
-    border: 3px solid; 
-} */
-
 .btn-check-profile {
-    /* margin: 15px; */
     margin-block-end: 0;
     align-self: center;
     padding: 10px;
@@ -152,7 +129,7 @@ body {
     font-size: medium;
 }
 
-*/ .category-input {
+.category-input {
     font-weight: normal !important;
 }
 
@@ -170,7 +147,6 @@ body {
 
 .jodit-toolbar__box:focus {
     border-width: 1px solid black;
-    /* height: 50%; */
 }
 
 .jodit-workplace:focus {
@@ -202,7 +178,6 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    /* flex-direction: column; */
 }
 
 .admin-panel-container {
@@ -230,12 +205,8 @@ body {
 .user-profile {
     width: 90%;
     margin: auto;
-    /* margin: 20px 10px 0 10px; */
     padding: 0;
-    /* height: 100%; */
-    /* padding: 100px; */
     padding-top: 0px;
-    /* margin-bottom: 0; */
 }
 
 .input-bio {
@@ -273,9 +244,6 @@ body {
     border: none;
 }
 
-
-/* global */
-
 .card-text {
     margin-left: 15px;
 }
@@ -297,7 +265,6 @@ body {
     width: 100px !important;
     margin: auto;
     margin-top: 50px;
-    /* margin-bottom: px; */
 }
 
 .notfound-container {
@@ -321,7 +288,6 @@ body {
     justify-content: center;
     margin-top: 35px;
     align-content: baseline;
-    /* justify-content: center; */
     width: 100%;
     justify-content: flex;
 }
@@ -344,9 +310,7 @@ body {
 
 .inputs-user-info {
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
-    /* align-content: center; */
     margin: auto;
     width: 80%;
 }
@@ -411,7 +375,6 @@ body {
 
 .form-span {
     max-width: 400px;
-    /* justify-content: center; */
     margin: auto;
 }
 
