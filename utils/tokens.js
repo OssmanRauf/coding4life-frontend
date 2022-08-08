@@ -67,7 +67,7 @@ export function getUserInfo() {
 }
 
 export const info = {
-    baseUrl: `http://127.0.0.1:8000`,
+    baseUrl: `https://coding4life-api.herokuapp.com`,
 }
 
 export function getDateInfo(dateToFormat) {
