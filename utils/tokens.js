@@ -46,7 +46,7 @@ export async function refreshToken() {
     const refreshToken = Cookies.get("refreshToken")
     if (!refreshToken) return null
     console.log(refreshToken)
-    const res = await fetch("http://127.0.0.1:8000/refresh_token", {
+    const res = await fetch(`${info.baseUrl}/refresh_token`, {
         headers: {
             accept: "application/json",
             Authorization: `Bearer ${refreshToken}`,
@@ -67,7 +67,7 @@ export function getUserInfo() {
 }
 
 export const info = {
-    baseUrl: `https://coding4life-api.herokuapp.com`,
+    baseUrl: `http://127.0.0.1:8000`,
 }
 
 export function getDateInfo(dateToFormat) {

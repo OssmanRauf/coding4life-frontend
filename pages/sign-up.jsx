@@ -67,9 +67,15 @@ const Signup = () => {
       }),
     })
     const response = await res.json()
+    // console.log(response)
     setShowLoading(false)
     if (res.status !== 201) {
-      flashingAlert(response.detail)
+      if (typeof response.detail === "object") {
+        console.log(response.detail[0])
+        flashingAlert(response.detail[0].msg)
+      } else {
+        flashingAlert(response.detail)
+      }
     }
     if (response.email) {
       flashingAlert("Registration successful", "success")
