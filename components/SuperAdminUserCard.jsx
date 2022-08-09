@@ -19,7 +19,9 @@ const SuperAdminUserCard = ({ user, handleShowModal, setDeleteId }) => {
           {user.description ? (
             <p className="card-text"> {user.description}</p>
           ) : (
-            <p className="card-text text-danger">User doesn't have a bio</p>
+            <p className="card-text text-danger">
+              User doesn&apos;t have a bio
+            </p>
           )}
 
           <div className="admin-btn-post">
