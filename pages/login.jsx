@@ -44,7 +44,7 @@ const Login = () => {
         isAdmin: data.is_admin,
         isSuperAdmin: data.is_super_user,
       })
-      router.push("/")
+      router.push("/").then(() => router.reload())
     } else {
       setShowAlert(true)
       event.target[0].value = ""

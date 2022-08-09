@@ -1,4 +1,11 @@
-const Modal = ({ closeModal, addImage, deleteImage }) => {
+const Modal = ({
+  closeModal,
+  addImage,
+  deleteImage,
+  image,
+  confirmation,
+  deleteUser,
+}) => {
   return (
     <div className="full-container">
       <div className="custom-modal">

@@ -71,7 +71,7 @@ const Signup = () => {
     setShowLoading(false)
     if (res.status !== 201) {
       if (typeof response.detail === "object") {
-        console.log(response.detail[0])
+        // console.log(response.detail[0])
         flashingAlert(response.detail[0].msg)
       } else {
         flashingAlert(response.detail)

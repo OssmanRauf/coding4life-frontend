@@ -9,6 +9,7 @@
     justify-content: center;
     margin: auto;
     align-self: center;
+    margin: auto;
 }
 
 .admin_request_container h3 {
@@ -28,6 +29,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto;
+    align-items: center;
 }
 
 .request_card {
@@ -54,8 +57,11 @@
 @media screen and (min-width: 768px) {
     .full_container {
         width: 80%;
+        margin: auto;
     }
     .admin_requests {
         flex-direction: row;
+        margin: auto;
+        justify-content: center;
     }
 }

@@ -3,7 +3,7 @@ import styles from "../styles/listArticles.module.css"
 import { getAccessToken, info } from "../utils/tokens"
 import { useRouter } from "next/router"
 import Image from "next/image"
-const SingleArtile = ({ object, isAdmin, setShowAlert }) => {
+const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
   const router = useRouter()
 
   const deletePost = async (id) => {
@@ -84,4 +84,4 @@ const SingleArtile = ({ object, isAdmin, setShowAlert }) => {
   )
 }
 
-export default SingleArtile
+export default SingleArticleCard

@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Image from "next/image"
-import { getAccessToken, getUserInfo, info } from "../utils/tokens"
+import {
+  getAccessToken,
+  getUserInfo,
+  info,
+  deleteTokens,
+} from "../utils/tokens"
 import loading from "../public/loading.gif"
 import Modal from "../components/Modal"
-export default function Myprofile({ posts, user }) {
+import ModalConfirmation from "../components/ModalConfirmation"
+export default function Myprofile({ user }) {
   const router = useRouter()
   const [isAdmin, setIsAdmin] = useState(false)
   const [showAlert, setShowAlert] = useState(false)
@@ -15,6 +21,8 @@ export default function Myprofile({ posts, user }) {
   const [alertMessage, setAlertMessage] = useState("")
   const [accessToken, setAccessToken] = useState("")
   const [values, setValues] = useState({})
+  const [showConfModal, setShowConfModal] = useState(false)
+  const [deleteId, setDeleteId] = useState("")
 
   useEffect(() => {
     const handler = async () => {
@@ -38,6 +46,8 @@ export default function Myprofile({ posts, user }) {
 
   const closeModal = () => {
     setShowModal(false)
+    setShowConfModal(false)
+    setDeleteId("")
   }
 
   const flashingAlert = (message, type) => {
@@ -137,9 +147,32 @@ export default function Myprofile({ posts, user }) {
       "Profile image deleted refresh the page to see the changes",
       "success"
     )
-    setShowModal(false)
+    setShowConfModal(false)
   }
+  const deleteUser = async () => {
+    // log
+    const setings = {
+      method: "DELETE",
+      headers: {
+        accept: "*/*",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
 
+    const res = await fetch(`${info.baseUrl}/users/?id=${deleteId}`, setings)
+    if (res.status !== 20) {
+      const response = await res.json()
+      flashingAlert(response.detail, "danger")
+    } else {
+      deleteTokens()
+      router.push("/login").then(() => {
+        setTimeout(() => {
+          router.reload()
+        }, 2000)
+      })
+    }
+    closeModal()
+  }
   const requestAdmin = async () => {
     setShowLoading(true)
 
@@ -166,133 +199,149 @@ export default function Myprofile({ posts, user }) {
     return `${info.baseUrl}/users/profile_pic/${user.username}`
   }
   return (
-    <div className="my-profile">
-      {showLoading ? (
-        <div className="full-container">
-          <Image
-            // layout="fill"
-            height="100%"
-            width="100%"
-            // className="loading"
-            style={{ margin: "auto" }}
-            src={loading.src}
-            alt=""
-          />
-        </div>
+    <>
+      {showConfModal ? (
+        <ModalConfirmation closeModal={closeModal} deleteUser={deleteUser} />
       ) : null}
-      <div className="my-info">
-        {showAlert ? (
-          <div
-            style={{ textAlign: "center" }}
-            className={`alert alert-${alertType}`}
-          >
-            {alertMessage}
+      <div className="my-profile">
+        {showLoading ? (
+          <div className="full-container">
+            <Image
+              // layout="fill"
+              height="100%"
+              width="100%"
+              // className="loading"
+              style={{ margin: "auto" }}
+              src={loading.src}
+              alt=""
+            />
           </div>
         ) : null}
-        {showModal ? (
-          <Modal
-            closeModal={closeModal}
-            addImage={addImage}
-            deleteImage={deleteImage}
-          />
-        ) : null}
-        <button className="image-profile" onClick={() => setShowModal(true)}>
-          <Image
-            loader={myLoader}
-            className="image-profile"
-            src={`${info.baseUrl}/users/profile_pic/${user.username}`}
-            width="150px"
-            height="150px"
-            alt=""
-          />
-        </button>
-        <div className="inputs-user-info">
-          <div className="input-span">
-            <p className="label-input" placeholder="Username">
-              Username:
-            </p>
-            <input
-              type="text"
-              defaultValue={values.username}
-              readOnly={readOnly}
-              onChange={(e) => {
-                const obj = values
-                obj.username = e.target.value
-                setValues(obj)
-              }}
-            />
-          </div>
-          <div className="input-span">
-            <p className="label-input">Full name: </p>
-            <input
-              type="text"
-              placeholder="Full name"
-              defaultValue={values.name}
-              readOnly={readOnly}
-              onChange={(e) => {
-                const obj = values
-                obj.name = e.target.value
-                setValues(obj)
-              }}
-            />
-          </div>
-          <div className="input-span">
-            <p className="label-input">Email: </p>
-            <input
-              type="text"
-              placeholder="Email"
-              defaultValue={values.email}
-              readOnly={readOnly}
-              onChange={(e) => {
-                const obj = values
-                obj.email = e.target.value
-                setValues(obj)
-              }}
-            />
-          </div>
-          <div className="input-span">
-            <p className="label-input">Bio: </p>
-            <textarea
-              type="text"
-              placeholder="Description"
-              defaultValue={values.description}
-              className="input-bio"
-              readOnly={readOnly}
-              onChange={(e) => {
-                const obj = values
-                obj.description = e.target.value
-                setValues(obj)
-              }}
-            />
-          </div>
-        </div>
-        <div className="btn-container">
-          {readOnly ? (
-            <button
-              onClick={() => setReadOnly(false)}
-              className="btn btn-primary button-change-submit"
+        <div className="my-info">
+          {showAlert ? (
+            <div
+              style={{ textAlign: "center" }}
+              className={`alert alert-${alertType}`}
             >
-              Edit info
-            </button>
-          ) : (
-            <button
-              onClick={submitChanges}
-              className="btn btn-primary button-change-submit"
-            >
-              Submit
-            </button>
-          )}
-          {!isAdmin ? (
-            <button
-              onClick={requestAdmin}
-              className="btn btn-secondary button-request-admin"
-            >
-              Request to be Admin
-            </button>
+              {alertMessage}
+            </div>
           ) : null}
+          {showModal ? (
+            <Modal
+              closeModal={closeModal}
+              addImage={addImage}
+              deleteImage={deleteImage}
+            />
+          ) : null}
+
+          <button className="image-profile" onClick={() => setShowModal(true)}>
+            <Image
+              loader={myLoader}
+              className="image-profile"
+              src={`${info.baseUrl}/users/profile_pic/${user.username}`}
+              width="150px"
+              height="150px"
+              alt=""
+            />
+          </button>
+          <div className="inputs-user-info">
+            <div className="input-span">
+              <p className="label-input" placeholder="Username">
+                Username:
+              </p>
+              <input
+                type="text"
+                defaultValue={values.username}
+                readOnly={readOnly}
+                onChange={(e) => {
+                  const obj = values
+                  obj.username = e.target.value
+                  setValues(obj)
+                }}
+              />
+            </div>
+            <div className="input-span">
+              <p className="label-input">Full name: </p>
+              <input
+                type="text"
+                placeholder="Full name"
+                defaultValue={values.name}
+                readOnly={readOnly}
+                onChange={(e) => {
+                  const obj = values
+                  obj.name = e.target.value
+                  setValues(obj)
+                }}
+              />
+            </div>
+            <div className="input-span">
+              <p className="label-input">Email: </p>
+              <input
+                type="text"
+                placeholder="Email"
+                defaultValue={values.email}
+                readOnly={readOnly}
+                onChange={(e) => {
+                  const obj = values
+                  obj.email = e.target.value
+                  setValues(obj)
+                }}
+              />
+            </div>
+            <div className="input-span">
+              <p className="label-input">Bio: </p>
+              <textarea
+                type="text"
+                placeholder="Description"
+                defaultValue={values.description}
+                className="input-bio"
+                readOnly={readOnly}
+                onChange={(e) => {
+                  const obj = values
+                  obj.description = e.target.value
+                  setValues(obj)
+                }}
+              />
+            </div>
+          </div>
+          <div className="btn-container">
+            {readOnly ? (
+              <button
+                onClick={() => setReadOnly(false)}
+                className="btn btn-primary button-change-submit"
+              >
+                Edit info
+              </button>
+            ) : (
+              <button
+                onClick={submitChanges}
+                className="btn btn-primary button-change-submit"
+              >
+                Submit
+              </button>
+            )}
+            {!isAdmin ? (
+              <button
+                onClick={requestAdmin}
+                className="btn btn-secondary button-request-admin"
+              >
+                Request to be Admin
+              </button>
+            ) : null}
+          </div>
+          <button
+            onClick={() => {
+              setShowConfModal(true)
+              setDeleteId(user.id)
+            }}
+            style={{ width: "250px", margin: "auto", marginTop: "30px" }}
+            className="btn btn-danger"
+          >
+            Delete this account
+          </button>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

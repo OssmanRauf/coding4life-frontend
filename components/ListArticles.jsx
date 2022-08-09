@@ -37,7 +37,7 @@ const ListArticles = ({
     )
   }
 
-  console.log(articles)
+  // console.log(articles)
   return (
     <div className={`${styles.list_article}`}>
       {!title ? (
