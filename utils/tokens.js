@@ -67,7 +67,7 @@ export function getUserInfo() {
 }
 
 export const info = {
-    baseUrl: `https://coding4life-api.herokuapp.com`,
+    baseUrl: `https://web-production-7e33.up.railway.app`,
 }
 
 export function getDateInfo(dateToFormat) {
