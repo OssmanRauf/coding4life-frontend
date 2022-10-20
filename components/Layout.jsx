@@ -5,13 +5,30 @@ import Head from "next/head"
 const Layout = ({ children, categories }) => {
   return (
     <>
+      <Script
+        data-ad-client="ca-pub-2090603078268650"
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      ></Script>
+      <Script
+        id={"google-analytics"}
+        strategy={"afterInteractive"}
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+        
+            gtag('config', 'G-Y4DN049NJG');
+        `,
+        }}
+      />
+
       <Head>
         {/* <Script> */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9791181696156091"
-          crossOrigin="anonymous"
-        ></script>
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+
         {/* </Script> */}
       </Head>
       <Nav categories={categories} />

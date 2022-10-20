@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import ArticleForm from "../../../components/ArticleForm"
 import { getAccessToken, getUserInfo, info } from "../../../utils/tokens"
-import GoogleAds from "../../../components/GoogleAds"
 const CreateArticle = () => {
   const [accessToken, setAccessToken] = useState("")
   const [showAlert, setShowAlert] = useState(false)
@@ -67,7 +66,6 @@ const CreateArticle = () => {
         <div className="alert alert-danger fixed-top m-4">{alertMessage}</div>
       ) : null}
       <ArticleForm handleSubmit={handleSubmit} accessToken={accessToken} />
-      <GoogleAds currentPath={"createArticle"} />
     </>
   )
 }

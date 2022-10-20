@@ -2,7 +2,6 @@ import Head from "next/head"
 import { info } from "../../utils/tokens"
 import NotFound from "../../components/NotFound"
 import UserProfile from "../../components/UserProfile"
-import GoogleAds from "../../components/GoogleAds"
 export default function Userprofile({ posts, user }) {
   if (!posts) {
     return <NotFound />
@@ -17,10 +16,12 @@ export default function Userprofile({ posts, user }) {
           content={`web-development, programming, ${user.username}`}
         />
         <meta name="description" content={`${user.description}`} />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content={user.username} />
       </Head>
 
       <UserProfile user={user} posts={posts} />
-      <GoogleAds currentPath={"userProfile"} />
     </>
   )
 }

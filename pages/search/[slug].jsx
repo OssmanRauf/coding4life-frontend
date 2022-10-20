@@ -2,7 +2,6 @@ import { info } from "../../utils/tokens"
 import ListArticles from "../../components/ListArticles"
 import NotFound from "../../components/NotFound"
 import Head from "next/head"
-import GoogleAds from "../../components/GoogleAds"
 
 const Search = ({ posts, slug }) => {
   if (posts.length < 1) {
@@ -18,7 +17,6 @@ const Search = ({ posts, slug }) => {
       <div>
         <ListArticles articles={posts} showPaginations={false} />
       </div>
-      <GoogleAds currentPath={"searchArticle"} />
     </>
   )
 }

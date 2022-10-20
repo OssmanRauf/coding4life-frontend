@@ -25,7 +25,6 @@ export default function Home({ posts, pages }) {
             showPaginations={true}
           />
         </div>
-        <GoogleAds currentPath={"articlesPage"} />
       </>
     )
   }

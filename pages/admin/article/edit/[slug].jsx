@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import ArticleForm from "../../../../components/ArticleForm"
 import { info, getAccessToken, getUserInfo } from "../../../../utils/tokens"
-import GoogleAds from "../../../../components/GoogleAds"
-
+import Head from "next/head"
 export default function EditArticle({ post }) {
   const [accessToken, setAccessToken] = useState("")
   const [showAlert, setShowAlert] = useState(false)
@@ -63,6 +62,10 @@ export default function EditArticle({ post }) {
 
   return (
     <>
+      <Head>
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+      </Head>
       {showAlert ? (
         <div className="alert alert-danger fixed-top m-4">{alertMessage}</div>
       ) : null}
@@ -76,7 +79,6 @@ export default function EditArticle({ post }) {
           description: post.description,
         }}
       />
-      <GoogleAds currentPath={"editArticle"} />
     </>
   )
 }

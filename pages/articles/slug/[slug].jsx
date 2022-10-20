@@ -3,9 +3,8 @@ import Head from "next/head"
 import { info } from "../../././../utils/tokens"
 import NotFound from "../../../components/NotFound"
 import ReadPost from "../../../components/ReadPost"
-import GoogleAds from "../../../components/GoogleAds"
 
-export default function Slug({ post, comments }) {
+export default function Slug({ post, comments, user }) {
   const router = useRouter()
   if (!post) {
     return <NotFound />
@@ -20,9 +19,11 @@ export default function Slug({ post, comments }) {
           content={`web-development, programming, ${post.category}`}
         />
         <meta name="description" content={`${post.description}`} />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content={user.username} />
       </Head>
       <ReadPost post={post} comments={comments} />
-      <GoogleAds currentPath={"readArticle"} />
     </>
   )
 }
@@ -37,6 +38,7 @@ export async function getServerSideProps(context) {
   } else {
     response = await res.json()
     post = response.Post
+    user = response.User
   }
   const resComments = await fetch(`${info.baseUrl}/comments/${slug}`)
 
@@ -45,6 +47,7 @@ export async function getServerSideProps(context) {
     props: {
       post,
       comments,
+      user,
     },
   }
 }

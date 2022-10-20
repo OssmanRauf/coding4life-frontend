@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import { getAccessToken, getUserInfo, info } from "../../utils/tokens"
 import Link from "next/link"
 import ListArticles from "../../components/ListArticles"
-import GoogleAds from "../../components/GoogleAds"
 const Index = ({ posts }) => {
   const router = useRouter()
   useEffect(() => {
@@ -41,7 +40,6 @@ const Index = ({ posts }) => {
           </div>
         </Link>
       </div>
-      <GoogleAds currentPath={"adminPage"} />
     </>
   )
 }

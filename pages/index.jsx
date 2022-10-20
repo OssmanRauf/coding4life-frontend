@@ -1,7 +1,6 @@
 import Head from "next/head"
 import { info } from "../utils/tokens"
 import ListArticles from "../components/ListArticles"
-import GoogleAds from "../components/GoogleAds"
 export default function Home({ posts, pages }) {
   return (
     <>
@@ -17,7 +16,6 @@ export default function Home({ posts, pages }) {
           showPaginations={true}
         />
       </div>
-      <GoogleAds currentPath={"homePage"} />
     </>
   )
 }

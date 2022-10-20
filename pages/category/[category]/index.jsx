@@ -1,7 +1,6 @@
 import Head from "next/head"
 import { info } from "../../../utils/tokens"
 import ListArticles from "../../../components/ListArticles"
-import GoogleAds from "../../../components/GoogleAds"
 export default function CategoryHome({ posts, pages, category }) {
   return (
     <div className="main-container">
@@ -18,7 +17,6 @@ export default function CategoryHome({ posts, pages, category }) {
         currentPage={1}
         showPaginations={false}
       />
-      <GoogleAds currentPath={"articlesByCategory"} />
     </div>
   )
 }

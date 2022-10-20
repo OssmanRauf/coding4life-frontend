@@ -1,7 +1,6 @@
 import styles from "../styles/about.module.css"
 import creator from "../public/creator.png"
 import Head from "next/head"
-import GoogleAds from "../components/GoogleAds"
 import Image from "next/image"
 const About = () => {
   return (
@@ -160,7 +159,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <GoogleAds currentPath={"aboutPage"} />
     </>
   )
 }
