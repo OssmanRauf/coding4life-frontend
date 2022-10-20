@@ -33,6 +33,7 @@ export async function getServerSideProps(context) {
   const res = await fetch(`${info.baseUrl}/posts/slug/${slug}`)
   var response
   var post
+  var user
   if (res.status !== 200) {
     post = false
   } else {
