@@ -8,22 +8,6 @@ import { info } from "../utils/tokens"
 function MyApp({ Component, pageProps, categories }) {
   return (
     <>
-      <Script
-        id="google-analytics"
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-0Z799QJ9ZZ`}
-      />
-
-      <Script id="google-ads" strategy="lazyOnload">
-        {`
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', 'G-0Z799QJ9ZZ', {
-                    page_path: window.location.pathname,
-                    });
-                `}
-      </Script>
       <Head>
         <link rel="shortcut icon" href="favicon.ico" />
       </Head>
