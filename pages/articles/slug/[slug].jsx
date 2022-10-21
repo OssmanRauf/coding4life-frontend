@@ -23,7 +23,7 @@ export default function Slug({ post, comments, user }) {
         <meta name="language" content="English" />
         <meta name="author" content={user.username} />
       </Head>
-      <ReadPost post={post} comments={comments} />
+      <ReadPost post={post} username={user.username} comments={comments} />
     </>
   )
 }
