@@ -9,14 +9,15 @@ export default function Slug({ post, comments, user }) {
   if (!post) {
     return <NotFound />
   }
-  const { slug } = router.query
+  const keywords = String(post.description.split(/[, ]+/))
+
   return (
     <>
       <Head>
         <title>{`${post.title}`}</title>
         <meta
           name="keywords"
-          content={`programming, coding, coding4life, ${post.category}`}
+          content={`programming, coding, coding4life, ${post.category}, ${keywords}`}
         />
         <meta name="description" content={`${post.description}`} />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
