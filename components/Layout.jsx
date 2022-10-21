@@ -22,7 +22,7 @@ const Layout = ({ children, categories }) => {
             gtag('config', 'G-Y4DN049NJG');
         `,
         }}
-      />
+      ></Script>
 
       <Head>
         {/* <Script> */}
