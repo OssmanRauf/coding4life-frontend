@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styles from "../styles/listArticles.module.css"
-import { getAccessToken, info } from "../utils/tokens"
+import { getAccessToken, getDateInfo, info } from "../utils/tokens"
 import { useRouter } from "next/router"
 import Image from "next/image"
 const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
@@ -55,22 +55,26 @@ const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
   const myLoader = () => {
     return `${info.baseUrl}/users/profile_pic/${object.User.username}`
   }
+  // console.log(object.Post.updated_at)
   return (
     <div className={`card ${styles.card_post_box}`}>
       <div className="card-header">
-        <Link href={`/profile/${object.User.username}`}>
-          <Image
-            width="50px"
-            height="50px"
-            loader={myLoader}
-            alt=""
-            src={`${info.baseUrl}/users/profile_pic/${object.User.username}`}
-          />
-        </Link>
+        <div className="card-header-profile">
+          <Link href={`/profile/${object.User.username}`}>
+            <Image
+              width="50px"
+              height="50px"
+              loader={myLoader}
+              alt=""
+              src={`${info.baseUrl}/users/profile_pic/${object.User.username}`}
+            />
+          </Link>
 
-        <Link href={`/profile/${object.User.username}`}>
-          <a style={{ paddingLeft: "15px" }}>{object.User.username}</a>
-        </Link>
+          <Link href={`/profile/${object.User.username}`}>
+            <a style={{ paddingLeft: "15px" }}>{object.User.username}</a>
+          </Link>
+        </div>
+        <p className="card-date">{getDateInfo(object.Post.updated_at)}</p>
       </div>
       <div className="card-body">
         <h5 className="card-title">{object.Post.title}</h5>

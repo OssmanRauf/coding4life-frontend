@@ -195,10 +195,23 @@ body {
 
 .card-header {
     display: flex;
+    /* flex-direction: row; */
+    /* width: 100%;
+     */
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-header p {
+    align-items: flex-end;
+}
+
+.card-header-profile {
+    display: flex;
     align-items: center !important;
 }
 
-.card-header img {
+.card-header-profile img {
     margin: 0 15px 0 0;
     border-radius: 50%;
 }

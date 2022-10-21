@@ -16,7 +16,7 @@ export default function Slug({ post, comments, user }) {
         <title>{`${post.title}`}</title>
         <meta
           name="keywords"
-          content={`web-development, programming, ${post.category}`}
+          content={`programming, coding, coding4life, ${post.category}`}
         />
         <meta name="description" content={`${post.description}`} />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
