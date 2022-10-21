@@ -74,7 +74,7 @@ const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
             <a style={{ paddingLeft: "15px" }}>{object.User.username}</a>
           </Link>
         </div>
-        <p className="card-date">{getDateInfo(object.Post.updated_at)}</p>
+        <p className="card-date">{getDateInfo(object.Post.created_at)}</p>
       </div>
       <div className="card-body">
         <h5 className="card-title">{object.Post.title}</h5>
