@@ -10,14 +10,12 @@ const Layout = ({ children, categories }) => {
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       ></Script>
-
       <Script
-        id="ygoogle-analytics"
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-Y4DN049NJG`}
       />
 
-      <Script strategy="lazyOnload">
+      <Script strategy="lazyOnload" id="google-analytics">
         {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
@@ -27,7 +25,6 @@ const Layout = ({ children, categories }) => {
                     });
                 `}
       </Script>
-
       <Head>
         {/* <Script> */}
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
