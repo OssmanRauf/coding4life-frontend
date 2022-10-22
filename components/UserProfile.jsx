@@ -19,6 +19,7 @@ const UserProfile = ({ user, posts }) => {
                 width="150px"
                 alt=""
                 loader={myLoader}
+                unoptimized
                 src={`${info.baseUrl}/users/profile_pic/${user.username}`}
               />
             </button>

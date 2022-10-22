@@ -65,6 +65,7 @@ const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
               width="50px"
               height="50px"
               loader={myLoader}
+              unoptimized
               alt=""
               src={`${info.baseUrl}/users/profile_pic/${object.User.username}`}
             />
