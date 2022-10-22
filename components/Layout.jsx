@@ -12,6 +12,7 @@ const Layout = ({ children, categories }) => {
       ></Script>
 
       <Script
+        id="ygoogle-analytics"
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-Y4DN049NJG`}
       />
