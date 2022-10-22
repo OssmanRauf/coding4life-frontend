@@ -12,7 +12,7 @@ export default function Home({ posts, pages }) {
           />
           <meta
             name="description"
-            content={`Coding4life a blog where you can learn and share your knowledge with others`}
+            content="A blog to learn and share knowledge, news and information about programming, software engineering, coding and more."
           />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="language" content="English" />

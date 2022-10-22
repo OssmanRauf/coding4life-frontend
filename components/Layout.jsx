@@ -11,6 +11,10 @@ const Layout = ({ children, categories }) => {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       ></Script>
       <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-Y4DN049NJG"
+      ></Script>
+      <Script
         id={"google-analytics"}
         strategy={"afterInteractive"}
         dangerouslySetInnerHTML={{
