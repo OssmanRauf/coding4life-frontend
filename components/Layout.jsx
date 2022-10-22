@@ -10,23 +10,22 @@ const Layout = ({ children, categories }) => {
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       ></Script>
+
       <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-Y4DN049NJG"
-      ></Script>
-      <Script
-        id={"google-analytics"}
-        strategy={"afterInteractive"}
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-        
-            gtag('config', 'G-Y4DN049NJG');
-        `,
-        }}
-      ></Script>
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-Y4DN049NJG`}
+      />
+
+      <Script strategy="lazyOnload">
+        {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-Y4DN049NJG', {
+                    page_path: window.location.pathname,
+                    });
+                `}
+      </Script>
 
       <Head>
         {/* <Script> */}
