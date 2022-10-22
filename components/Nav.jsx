@@ -59,14 +59,20 @@ const Nav = ({ categories }) => {
           <ul className={"navbar-nav me-auto mb-2 mb-lg-0"}>
             <li className={"nav-item mx-4"}>
               <Link href="/">
-                <a className={"nav-link fw-bold text-dark"} aria-current="page">
+                <a
+                  className={"dropdown-item nav-link fw-bold text-dark"}
+                  aria-current="page"
+                >
                   Home
                 </a>
               </Link>
             </li>
             <li className={"nav-item mx-4"}>
               <Link href="/about">
-                <a className={"nav-link  fw-bold text-dark"} href="">
+                <a
+                  className={"dropdown-item nav-link  fw-bold text-dark"}
+                  href=""
+                >
                   About
                 </a>
               </Link>
@@ -84,7 +90,10 @@ const Nav = ({ categories }) => {
               <ul className={"dropdown-menu"} aria-labelledby="navbarDropdown">
                 {categoriesList.map((categoryobj) => {
                   return (
-                    <li key={categoryobj.category}>
+                    <li
+                      className={"dropdown-category"}
+                      key={categoryobj.category}
+                    >
                       <Link href={`/category/${categoryobj.category}`}>
                         <a className={"dropdown-item"} href="#">
                           {categoryobj.category}
@@ -99,7 +108,7 @@ const Nav = ({ categories }) => {
               <li className={"nav-item mx-4"}>
                 <Link href="/myprofile">
                   <a
-                    className={"nav-link fw-bold text-dark"}
+                    className={"dropdown-item nav-link fw-bold text-dark"}
                     aria-current="page"
                   >
                     Myprofile
@@ -111,7 +120,7 @@ const Nav = ({ categories }) => {
               <li className={"nav-item mx-4"}>
                 <Link href="/admin">
                   <a
-                    className={"nav-link fw-bold text-dark"}
+                    className={"dropdown-item nav-link fw-bold text-dark"}
                     aria-current="page"
                   >
                     Admin
@@ -122,11 +131,15 @@ const Nav = ({ categories }) => {
             <li className={"nav-item mx-4"}>
               {!accessToken ? (
                 <Link href="/login">
-                  <a className={"nav-link  fw-bold text-dark"}>Login</a>
+                  <a className={"dropdown-item nav-link  fw-bold text-dark"}>
+                    Login
+                  </a>
                 </Link>
               ) : (
                 <button className="btn-logout" onClick={logOut}>
-                  <a className={"nav-link  fw-bold text-dark"}>Logout</a>
+                  <a className={"dropdown-item nav-link  fw-bold text-dark"}>
+                    Logout
+                  </a>
                 </button>
               )}
             </li>
@@ -134,7 +147,7 @@ const Nav = ({ categories }) => {
               <li className={"nav-item mx-4"}>
                 <Link href="/sign-up">
                   <a
-                    className={"nav-link fw-bold text-dark"}
+                    className={"dropdown-item nav-link fw-bold text-dark"}
                     aria-current="page"
                   >
                     SignUp

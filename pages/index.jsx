@@ -8,11 +8,11 @@ export default function Home({ posts, pages }) {
         <Head>
           <meta
             name="keywords"
-            content="web-development, programming, coding, coding4life, software"
+            content="web-development, programming, coding, coding4life, software, blog, developer, for, life"
           />
           <meta
             name="description"
-            content="A blog to learn and share knowledge, news and information about programming, software engineering, coding and more."
+            content="A blog for developers, coders, progrmmers that provides you with variety of articles on programming topics. Use it to write and read quality articles on programming. A blog where you find everything abou coding, programming, software engineering, software development and much more. Quality. Articles. About. Coding."
           />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="language" content="English" />

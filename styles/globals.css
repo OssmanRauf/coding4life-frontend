@@ -411,7 +411,22 @@ body {
     margin-bottom: 30px;
 }
 
+.nav-item:not(.dropdown) {
+    max-width: 70px;
+}
+
+.dropdown-item {
+    border-radius: 10%;
+    /* text-align: center;
+     */
+    margin-right: 10px;
+    /* text-align: justify; */
+}
+
 @media screen and (min-width: 768px) {
+    .nav-item:not(.dropdown) {
+        text-align: center;
+    }
     .login-box {
         width: 40%;
     }
