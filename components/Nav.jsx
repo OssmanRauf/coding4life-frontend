@@ -56,129 +56,131 @@ const Nav = ({ categories }) => {
           <span className={"navbar-toggler-icon"}></span>
         </button>
         <div className={"collapse navbar-collapse"} id="navbarTogglerDemo01">
-          <ul className={"navbar-nav me-auto mb-2 mb-lg-0"}>
-            <li className={"nav-item mx-4"}>
-              <Link href="/">
+          <div className="navbar-custom">
+            <ul className={"navbar-nav me-auto mb-2 mb-lg-0"}>
+              <li className={"nav-item mx-4"}>
+                <Link href="/">
+                  <a
+                    className={"dropdown-item nav-link fw-bold text-dark"}
+                    aria-current="page"
+                  >
+                    Home
+                  </a>
+                </Link>
+              </li>
+              <li className={"nav-item mx-4"}>
+                <Link href="/about">
+                  <a className={"dropdown-item nav-link  fw-bold text-dark"}>
+                    About
+                  </a>
+                </Link>
+              </li>
+              <li className={"nav-item mx-4 dropdown"}>
                 <a
-                  className={"dropdown-item nav-link fw-bold text-dark"}
-                  aria-current="page"
+                  className={"nav-link dropdown-toggle fw-bold text-dark"}
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  Home
+                  Categories
                 </a>
-              </Link>
-            </li>
-            <li className={"nav-item mx-4"}>
-              <Link href="/about">
-                <a
-                  className={"dropdown-item nav-link  fw-bold text-dark"}
-                  href=""
+                <ul
+                  className={"dropdown-menu"}
+                  aria-labelledby="navbarDropdown"
                 >
-                  About
-                </a>
-              </Link>
-            </li>
-            <li className={"nav-item mx-4 dropdown"}>
-              <a
-                className={"nav-link dropdown-toggle fw-bold text-dark"}
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Categories
-              </a>
-              <ul className={"dropdown-menu"} aria-labelledby="navbarDropdown">
-                {categoriesList.map((categoryobj) => {
-                  return (
-                    <li
-                      className={"dropdown-category"}
-                      key={categoryobj.category}
+                  {categoriesList.map((categoryobj) => {
+                    return (
+                      <li
+                        className={"dropdown-category"}
+                        key={categoryobj.category}
+                      >
+                        <Link href={`/category/${categoryobj.category}`}>
+                          <a className={"dropdown-item"} href="#">
+                            {categoryobj.category}
+                          </a>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </li>
+              {accessToken ? (
+                <li className={"nav-item mx-4"}>
+                  <Link href="/myprofile">
+                    <a
+                      className={"dropdown-item nav-link fw-bold text-dark"}
+                      aria-current="page"
                     >
-                      <Link href={`/category/${categoryobj.category}`}>
-                        <a className={"dropdown-item"} href="#">
-                          {categoryobj.category}
-                        </a>
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </li>
-            {accessToken ? (
+                      Myprofile
+                    </a>
+                  </Link>
+                </li>
+              ) : null}
+              {isAdmin ? (
+                <li className={"nav-item mx-4"}>
+                  <Link href="/admin">
+                    <a
+                      className={"dropdown-item nav-link fw-bold text-dark"}
+                      aria-current="page"
+                    >
+                      Admin
+                    </a>
+                  </Link>
+                </li>
+              ) : null}
               <li className={"nav-item mx-4"}>
-                <Link href="/myprofile">
-                  <a
-                    className={"dropdown-item nav-link fw-bold text-dark"}
-                    aria-current="page"
-                  >
-                    Myprofile
-                  </a>
-                </Link>
+                {!accessToken ? (
+                  <Link href="/login">
+                    <a className={"dropdown-item nav-link  fw-bold text-dark"}>
+                      Login
+                    </a>
+                  </Link>
+                ) : (
+                  <button className="btn-logout" onClick={logOut}>
+                    <a className={"dropdown-item nav-link  fw-bold text-dark"}>
+                      Logout
+                    </a>
+                  </button>
+                )}
               </li>
-            ) : null}
-            {isAdmin ? (
-              <li className={"nav-item mx-4"}>
-                <Link href="/admin">
-                  <a
-                    className={"dropdown-item nav-link fw-bold text-dark"}
-                    aria-current="page"
-                  >
-                    Admin
-                  </a>
-                </Link>
-              </li>
-            ) : null}
-            <li className={"nav-item mx-4"}>
               {!accessToken ? (
-                <Link href="/login">
-                  <a className={"dropdown-item nav-link  fw-bold text-dark"}>
-                    Login
-                  </a>
-                </Link>
-              ) : (
-                <button className="btn-logout" onClick={logOut}>
-                  <a className={"dropdown-item nav-link  fw-bold text-dark"}>
-                    Logout
-                  </a>
-                </button>
-              )}
-            </li>
-            {!accessToken ? (
-              <li className={"nav-item mx-4"}>
-                <Link href="/sign-up">
-                  <a
-                    className={"dropdown-item nav-link fw-bold text-dark"}
-                    aria-current="page"
-                  >
-                    SignUp
-                  </a>
-                </Link>
-              </li>
-            ) : null}
-          </ul>
-          <form
-            className={"d-flex"}
-            onSubmit={(e) => {
-              e.preventDefault
-            }}
-          >
-            <input
-              className={"form-control me-2"}
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value)
+                <li className={"nav-item mx-4"}>
+                  <Link href="/sign-up">
+                    <a
+                      className={"dropdown-item nav-link fw-bold text-dark"}
+                      aria-current="page"
+                    >
+                      SignUp
+                    </a>
+                  </Link>
+                </li>
+              ) : null}
+            </ul>
+            <form
+              className={"d-flex"}
+              onSubmit={(e) => {
+                e.preventDefault
               }}
-            />
-            <Link href={`/search/${search}`}>
-              <button className={"btn btn-outline-success"} type="submit">
-                {/* onClick={} */}
-                Search
-              </button>
-            </Link>
-          </form>
+            >
+              <input
+                className={"form-control me-2"}
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value)
+                }}
+              />
+              <Link href={`/search/${search}`}>
+                <button className={"btn btn-outline-success"} type="submit">
+                  {/* onClick={} */}
+                  Search
+                </button>
+              </Link>
+            </form>
+          </div>
         </div>
       </div>
     </nav>

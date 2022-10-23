@@ -12,6 +12,16 @@
     .comment_section {
         width: 100%;
     }
+    .navbar-custom {
+        z-index: 1000000000;
+        position: absolute;
+        background-color: #f5f5f5;
+        /* top: -10px; */
+        left: 0;
+        margin-top: 5px;
+        padding: 10px;
+    }
+    /* /* .navbar-nav {} */
 }
 
 body {
@@ -268,6 +278,7 @@ body {
     background-color: #fff;
     justify-content: center;
     padding-bottom: 50px;
+    width: 100%;
 }
 
 .loading {
@@ -423,6 +434,15 @@ body {
     /* text-align: justify; */
 }
 
+.full-container {
+    margin: auto;
+}
+
+.my-profile {
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
     .nav-item:not(.dropdown) {
         text-align: center;
@@ -440,9 +460,13 @@ body {
         align-self: flex-end;
     }
     .my-profile {
+        /* margin-top: 80px; */
+        /* flex-direction */
+        align-items: center;
+        /* margin: auto; */
+    }
+    .my-info {
         width: 80%;
-        margin-top: 80px;
-        margin: auto;
     }
     .admin-btn-post a {
         margin: 0 10px;
@@ -473,5 +497,12 @@ body {
     }
     .notfound-div {
         width: 50%;
+    }
+    .navbar-custom {
+        width: 100%;
+        display: flex;
+    }
+    .nav-item:not(.dropdown) {
+        max-width: 100px;
     }
 }
