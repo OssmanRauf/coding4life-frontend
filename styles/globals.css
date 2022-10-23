@@ -443,6 +443,17 @@ body {
     justify-content: center;
 }
 
+.router-loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* to */
+    z-index: 30;
+}
+
 @media screen and (min-width: 768px) {
     .nav-item:not(.dropdown) {
         text-align: center;
