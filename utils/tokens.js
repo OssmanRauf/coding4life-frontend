@@ -76,6 +76,7 @@ export function getDateInfo(dateToFormat) {
     const diffTime = date - comment_date
     const diffHours = Math.floor(diffTime / (1000 * 60 * 60))
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24))
+    console.log(diffHours)
     if (diffDays > 30) {
         return `${Math.floor(diffDays / 30)}mo ago`
     }
