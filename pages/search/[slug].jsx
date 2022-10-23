@@ -10,7 +10,7 @@ const Search = ({ posts, slug }) => {
   return (
     <>
       <Head>
-        <title>{`${slug}`}</title>
+        <title>{slug}</title>
         <meta name="keywords" content={`web-development, programming`} />
         <meta name="description" content={`${slug}`} />
       </Head>

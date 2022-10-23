@@ -10,7 +10,7 @@ export default function Userprofile({ posts, user }) {
   return (
     <>
       <Head>
-        <title>{`${user.username}`}</title>
+        <title>{user.username}</title>
         <meta
           name="keywords"
           content={`web-development, programming, ${user.username}`}

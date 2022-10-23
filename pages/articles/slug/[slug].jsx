@@ -14,7 +14,7 @@ export default function Slug({ post, comments, user }) {
   return (
     <>
       <Head>
-        <title>{`${post.title}`}</title>
+        <title>{post.title}</title>
         <meta
           name="keywords"
           content={`programming, coding, coding4life, ${post.category}, ${keywords}`}
