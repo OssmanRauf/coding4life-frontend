@@ -91,7 +91,6 @@ export async function getServerSideProps(context) {
   const res = await fetch(`${info.baseUrl}/posts/slug/${slug}`)
   const response = await res.json()
   const post = response.Post
-  console.log(post)
   return {
     props: { post: post },
   }

@@ -42,7 +42,7 @@ const ArticleForm = ({ existingContent, handleSubmit }) => {
       />
       <input
         type="text"
-        className={styles.create_input}
+        className={`${styles.header_img}`}
         placeholder="Add a link url to the image you want to display AS HEADER"
         onChange={(e) => {
           setImgUrl(e.target.value)
