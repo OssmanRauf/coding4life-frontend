@@ -454,6 +454,14 @@ body {
     z-index: 30;
 }
 
+.post-image-header {
+    width: "100%";
+    height: "150px";
+    object-fit: "cover";
+    margin-bottom: "15px";
+    border-radius: "8px";
+}
+
 @media screen and (min-width: 768px) {
     .nav-item:not(.dropdown) {
         text-align: center;

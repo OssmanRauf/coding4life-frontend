@@ -31,6 +31,7 @@ export default function EditArticle({ post }) {
     description,
     content,
     publish,
+    header_img,
   }) => {
     const settings = {
       method: "put",
@@ -45,6 +46,7 @@ export default function EditArticle({ post }) {
         published: publish,
         category: category,
         description: description,
+        header_img: header_img,
       }),
     }
     const res = await fetch(`${info.baseUrl}/posts/${post.id}`, settings)
@@ -77,6 +79,7 @@ export default function EditArticle({ post }) {
           content: post.content,
           category: post.category,
           description: post.description,
+          header_img: post.header_img,
         }}
       />
     </>
@@ -88,9 +91,8 @@ export async function getServerSideProps(context) {
   const res = await fetch(`${info.baseUrl}/posts/slug/${slug}`)
   const response = await res.json()
   const post = response.Post
+  console.log(post)
   return {
-    props: {
-      post,
-    },
+    props: { post: post },
   }
 }

@@ -30,6 +30,7 @@ const CreateArticle = () => {
     description,
     content,
     publish,
+    header_img,
   }) => {
     const settings = {
       method: "POST",
@@ -44,6 +45,7 @@ const CreateArticle = () => {
         published: publish,
         category: category,
         description: description,
+        header_img: header_img,
       }),
     }
     const res = await fetch(`${info.baseUrl}/posts/`, settings)

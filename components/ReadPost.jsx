@@ -19,12 +19,12 @@ const ReadPost = ({ post, comments, username }) => {
               <a style={{ paddingLeft: "15px" }}>{username}</a>
             </Link>
           </p>
-          <p style={{ marginTop: 0, fontSize: "12px" }}>
+          {/* <p style={{ marginTop: 0, fontSize: "12px" }}>
             Last updated:
             <span style={{ marginLeft: 10 }}>
               {getDateInfo(post.updated_at)}
             </span>
-          </p>
+          </p> */}
           <div
             className={`${styles.article_content}`}
             dangerouslySetInnerHTML={{ __html: post.content }}

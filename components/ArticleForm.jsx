@@ -5,6 +5,8 @@ import styles from "../styles/articleForm.module.css"
 const ArticleForm = ({ existingContent, handleSubmit }) => {
   const [content, setContent] = useState("")
   const [title, settitle] = useState("")
+  const [imgUrl, setImgUrl] = useState("")
+
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
 
@@ -14,6 +16,7 @@ const ArticleForm = ({ existingContent, handleSubmit }) => {
       setCategory(existingContent.category)
       setDescription(existingContent.description)
       setContent(existingContent.content)
+      setImgUrl(existingContent.header_img)
     }
   }, [existingContent])
 
@@ -37,6 +40,15 @@ const ArticleForm = ({ existingContent, handleSubmit }) => {
         }}
         value={category}
       />
+      <input
+        type="text"
+        className={styles.create_input}
+        placeholder="Add a link url to the image you want to display AS HEADER"
+        onChange={(e) => {
+          setImgUrl(e.target.value)
+        }}
+        value={imgUrl}
+      />
       <textarea
         type="text"
         className={`${styles.create_input} ${styles.description_input}`}
@@ -57,6 +69,7 @@ const ArticleForm = ({ existingContent, handleSubmit }) => {
               description: description,
               content: content,
               publish: false,
+              header_img: imgUrl,
             })
           }}
         >
@@ -72,6 +85,7 @@ const ArticleForm = ({ existingContent, handleSubmit }) => {
               description: description,
               content: content,
               publish: true,
+              header_img: imgUrl,
             })
           }}
         >

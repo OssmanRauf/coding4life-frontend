@@ -28,6 +28,20 @@ const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
     return (
       <div className="card card-post-box">
         <div className="card-body">
+          {object.header_img ? (
+            <img
+              src={object.header_img}
+              style={{
+                width: "100%",
+                height: "150px",
+                objectFit: "cover",
+                marginBottom: "15px",
+                borderRadius: "8px",
+              }}
+            />
+          ) : (
+            ""
+          )}
           <h5 className="card-title">{object.title}</h5>
           <p className="card-text">{object.description}</p>
           <div className="admin-btn-post">
@@ -78,6 +92,20 @@ const SingleArticleCard = ({ object, isAdmin, setShowAlert }) => {
         <p className="card-date">{getDateInfo(object.Post.created_at)}</p>
       </div>
       <div className="card-body">
+        {object.header_img ? (
+          <img
+            src={object.header_img}
+            style={{
+              width: "100%",
+              height: "150px",
+              objectFit: "cover",
+              marginBottom: "15px",
+              borderRadius: "8px",
+            }}
+          />
+        ) : (
+          ""
+        )}
         <h5 className="card-title">{object.Post.title}</h5>
         <p className="card-text">{object.Post.description}</p>
 

@@ -33,6 +33,10 @@ export async function getServerSideProps() {
   // Call an external API endpoint to get posts.
   const res = await fetch(`${info.baseUrl}/posts/?&limit=10&offset=0`)
   const posts_response = await res.json()
+  // if (res ) {
+
+  // }
+  console.log(posts_response)
   const posts = posts_response.posts
   const pages = {
     num_results: posts_response.num_results,
@@ -42,8 +46,8 @@ export async function getServerSideProps() {
   // will receive `posts` as a prop at build time
   return {
     props: {
-      posts,
-      pages,
+      posts: posts,
+      pages: pages,
     },
   }
 }

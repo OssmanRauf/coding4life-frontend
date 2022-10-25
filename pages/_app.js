@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps, categories }) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Layout categories={categories}>
         <Component {...pageProps} />

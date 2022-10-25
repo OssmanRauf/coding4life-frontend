@@ -15,6 +15,8 @@ export default function Slug({ post, comments, user }) {
     <>
       <Head>
         <title>{post.title}</title>
+        {/* <meta property="og:title" content={post.title} /> */}
+        <meta property="og:image" content={post.header_img} />
         <meta
           name="keywords"
           content={`programming, coding, coding4life, ${post.category}, ${keywords}`}
@@ -32,24 +34,25 @@ export default function Slug({ post, comments, user }) {
 export async function getServerSideProps(context) {
   const { slug } = context.query
   const res = await fetch(`${info.baseUrl}/posts/slug/${slug}`)
+  console.log(res)
   var response
   var post
   var user
   if (res.status !== 200) {
     post = false
+    user = false
   } else {
     response = await res.json()
     post = response.Post
     user = response.User
   }
   const resComments = await fetch(`${info.baseUrl}/comments/${slug}`)
-
   const comments = await resComments.json()
   return {
     props: {
-      post,
-      comments,
-      user,
+      post: post,
+      comments: comments,
+      user: user,
     },
   }
 }
