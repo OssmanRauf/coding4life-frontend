@@ -2,10 +2,27 @@ import Script from "next/script"
 import Layout from "../components/Layout"
 import App from "next/app"
 import Head from "next/head"
+import "bootstrap/dist/css/bootstrap.css"
 import "../styles/globals.css"
 import "react-dom"
 import { info } from "../utils/tokens"
-function MyApp({ Component, pageProps, categories }) {
+import { useEffect, useState } from "react"
+function MyApp({ Component, pageProps }) {
+  const [categories, setCategories] = useState([])
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap")
+    const handler = async () => {
+      const res = await fetch(`${info.baseUrl}/posts/categories`)
+      res !== 200 ? setCategories([]) : ""
+      const categories = await res.json()
+      if (categories) {
+        // const appProps = App.getInitialProps(appContext)
+        setCategories(categories)
+      }
+    }
+    handler()
+  })
+
   return (
     <>
       <Head>
@@ -13,12 +30,6 @@ function MyApp({ Component, pageProps, categories }) {
       </Head>
       <Layout categories={categories}>
         <Component {...pageProps} />
-        <Script
-          id="bootstrap"
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"
-        ></Script>
       </Layout>
     </>
   )
@@ -26,11 +37,4 @@ function MyApp({ Component, pageProps, categories }) {
 
 export default MyApp
 
-MyApp.getInitialProps = async (appContext) => {
-  const res = await fetch(`${info.baseUrl}/posts/categories`)
-  const categories = await res.json()
-  if (categories) {
-    const appProps = App.getInitialProps(appContext)
-    return { ...appProps, categories: categories }
-  }
-}
+// MyApp.getInitialProps = async (appContext) => {}

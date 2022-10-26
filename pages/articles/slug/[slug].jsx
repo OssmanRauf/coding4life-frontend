@@ -34,7 +34,7 @@ export default function Slug({ post, comments, user }) {
 export async function getServerSideProps(context) {
   const { slug } = context.query
   const res = await fetch(`${info.baseUrl}/posts/slug/${slug}`)
-  console.log(res)
+  // console.log(res)
   var response
   var post
   var user
