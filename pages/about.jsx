@@ -141,7 +141,7 @@ const About = () => {
                   />
                 </a>
                 <a
-                  href="https://github.com/thebossmanlab"
+                  href="https://github.com/OssmanRauf"
                   target="_blank"
                   rel="noreferrer"
                   style={{ color: "black" }}

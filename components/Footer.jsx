@@ -40,7 +40,7 @@ const Footer = () => {
                 />
               </a>
               <a
-                href="https://github.com/thebossmanlab"
+                href="https://github.com/OssmanRauf"
                 target="_blank"
                 rel="noreferrer"
                 className="text-white me-4"
