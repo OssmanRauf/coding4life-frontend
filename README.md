@@ -10,11 +10,11 @@
 
 <br/>
 
-<p align="center" style="display":"flex" "align-content":"center">
+<div style="display":"flex" "align-content":"center">
 <img src="https://lh4.googleusercontent.com/n09GEBdXDMJZxxBwgLZmMiNBlf141IJPJPHau7inZviiUn58-_zxY0Mq-AbPA8KdTlY=w2400" width="200px" styles="padding-top:10px"/>
 <img src="https://lh6.googleusercontent.com/CL3VHJ-LS17iUlx8s30vHGbqnUxKkTmkoT8CjbpdW5rec7JWaWBGPb1vWtJmAxyYGbs=w2400" width="200px" styles="padding-top:10px"/>
 
-</p>
+</div>
 
 <br/>
 
