@@ -11,7 +11,7 @@
 <br/>
 
 <p align="center">
-<img src="https://drive.google.com/file/d/1jVnF8o-I9FKazaNFvlwg89cY-gv_sTBr/view?usp=sharing" width="300px" styles="padding-top:10px"/>
+<img src="https://lh6.googleusercontent.com/CL3VHJ-LS17iUlx8s30vHGbqnUxKkTmkoT8CjbpdW5rec7JWaWBGPb1vWtJmAxyYGbs=w2400" width="300px" styles="padding-top:10px"/>
 
 </p>
 
