@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import Image from "next/image"
 import logo from "../public/logo.png"
 import { info } from "../utils/tokens"
-export default () => {
+const Nav = () => {
   const [categories, setCategories] = useState([])
   const [accessToken, setAccessToken] = useState("")
   const [isAdmin, setIsAdmin] = useState(false)
@@ -195,3 +195,5 @@ export default () => {
     </nav>
   )
 }
+
+export default Nav
