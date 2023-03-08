@@ -22,13 +22,6 @@ const Nav = () => {
     const handler = async () => {
       const accessToken_in = await getAccessToken()
       const userInfo = await getUserInfo()
-      const res = await fetch(`${info.baseUrl}/posts/categories`)
-      res !== 200 ? setCategories([]) : ""
-      const categories = await res.json()
-      if (categories) {
-        // const appProps = App.getInitialProps(appContext)
-        setCategories(categories)
-      }
       if (accessToken_in) {
         setAccessToken(accessToken_in)
         setIsAdmin(userInfo.isAdmin)
@@ -36,8 +29,20 @@ const Nav = () => {
     }
     handler()
   }, [])
-  console.log(categories)
 
+  // useEffect(() => {
+  //   const handler = async () => {
+  //     const res = await fetch(`${info.baseUrl}/posts/categories`)
+  //     res !== 200 ? setCategories([]) : ""
+  //     const categories = await res.json()
+  //     if (categories) {
+  //       // const appProps = App.getInitialProps(appContext)
+  //       setCategories(categories)
+  //       console.log(categories)
+  //     }
+  //   }
+  //   handler()
+  // }, [])
   return (
     <nav className={"navbar navbar-expand-lg navbar-light bg-light"}>
       <div className={"container-fluid"}>
