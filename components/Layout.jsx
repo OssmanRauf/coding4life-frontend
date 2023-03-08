@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import loading from "../public/loading.gif"
-const Layout = ({ children, categories }) => {
+const Layout = ({ children }) => {
   const router = useRouter()
   const [showLoading, setShowLoading] = useState(false)
   // const
@@ -70,7 +70,7 @@ const Layout = ({ children, categories }) => {
         ""
       )}
 
-      <Nav categories={categories} />
+      <Nav />
       <main style={{ minHeight: "500px" }} className="main-layout">
         {children}
       </main>

@@ -4,13 +4,13 @@ import { getAccessToken, getUserInfo, deleteTokens } from "../utils/tokens"
 import { useRouter } from "next/router"
 import Image from "next/image"
 import logo from "../public/logo.png"
-const Nav = ({ categories }) => {
-  const categoriesList = categories
+import { info } from "../utils/tokens"
+export default () => {
+  const [categories, setCategories] = useState([])
   const [accessToken, setAccessToken] = useState("")
   const [isAdmin, setIsAdmin] = useState(false)
   const [search, setSearch] = useState("")
   const router = useRouter()
-
   function logOut() {
     deleteTokens()
     setAccessToken("")
@@ -22,6 +22,13 @@ const Nav = ({ categories }) => {
     const handler = async () => {
       const accessToken_in = await getAccessToken()
       const userInfo = await getUserInfo()
+      const res = await fetch(`${info.baseUrl}/posts/categories`)
+      res !== 200 ? setCategories([]) : ""
+      const categories = await res.json()
+      if (categories) {
+        // const appProps = App.getInitialProps(appContext)
+        setCategories(categories)
+      }
       if (accessToken_in) {
         setAccessToken(accessToken_in)
         setIsAdmin(userInfo.isAdmin)
@@ -29,6 +36,8 @@ const Nav = ({ categories }) => {
     }
     handler()
   }, [])
+  console.log(categories)
+
   return (
     <nav className={"navbar navbar-expand-lg navbar-light bg-light"}>
       <div className={"container-fluid"}>
@@ -89,15 +98,15 @@ const Nav = ({ categories }) => {
                   className={"dropdown-menu"}
                   aria-labelledby="navbarDropdown"
                 >
-                  {categoriesList.map((categoryobj) => {
+                  {categories.map((category) => {
                     return (
                       <li
                         className={"dropdown-category"}
-                        key={categoryobj.category}
+                        key={category.category}
                       >
-                        <Link href={`/category/${categoryobj.category}`}>
+                        <Link href={`/category/${category.category}`}>
                           <a className={"dropdown-item"} href="#">
-                            {categoryobj.category}
+                            {category.category}
                           </a>
                         </Link>
                       </li>
@@ -186,5 +195,3 @@ const Nav = ({ categories }) => {
     </nav>
   )
 }
-
-export default Nav
